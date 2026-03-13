@@ -1,5 +1,5 @@
 # THUAI9-Test-Viz
-我们的测试开发路径在Test_viz\THUAI9-Backend-master\client\client_gRPC\dev_test
+我们的测试开发路径在THUAI9-Test-Viz\THUAI9-Backend-master\client\client_gRPC\dev_test
 
 大家辛苦，注意注释与沟通！
 
@@ -22,4 +22,5 @@ client_gRPC/dev_test/           # 《开发测试》主文件夹
     │   ├── converter.py
     ├── README.md       # 项目说明与开发分工
     └── main.py         # 项目入口，整合各模块
+
 
