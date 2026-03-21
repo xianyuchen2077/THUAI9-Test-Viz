@@ -147,6 +147,10 @@ namespace Server
 
         public void addSpell(SpellContext context, Board board)
         {
+<<<<<<< HEAD
+=======
+            //TODO
+>>>>>>> origin/main
             BattleAction temp = new BattleAction();
             temp.actionType = "Ability";
             temp.soldierId = context.caster.id;
@@ -210,10 +214,13 @@ namespace Server
             Console.WriteLine("按下回车键继续...");
             Console.ReadLine();
         }
+<<<<<<< HEAD
 
         public string ToJson()
         {
             return JsonSerializer.Serialize(gamedata, new JsonSerializerOptions { WriteIndented = true });
         }
+=======
+>>>>>>> origin/main
     }
 }
