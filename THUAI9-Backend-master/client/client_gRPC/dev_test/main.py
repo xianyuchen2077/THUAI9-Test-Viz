@@ -1,74 +1,30 @@
-<<<<<<< HEAD
 # 项目入口文件
 # 负责整合各模块，启动测试界面
 
 import sys
 import os
+from typing import Optional
 
 # 添加当前目录到路径，便于导入模块
 sys.path.append(os.path.dirname(__file__))
 
-# 导入各模块（待实现）
-# from core.decoder import Decoder
-# from core.events import EventManager
-# from ui.main_ui import MainUI
-# from logic.controller import Controller
-# from utils.converter import Converter
+from logic.controller import Controller
 
-def main():
-    # 初始化数据解析器
-    # decoder = Decoder()
 
-    # 初始化事件管理器
-    # event_manager = EventManager()
+def main(mode: str = "manual", prefer_backend: bool = True):
+    controller = Controller(mode=mode)
 
-    # 初始化控制器
-    # controller = Controller(decoder, event_manager)
+    try:
+        game_data = controller.load_game_data(prefer_backend=prefer_backend)
+        print(f"已加载游戏数据，回合数 = {len(game_data.get('rounds', []))}")
+    except Exception as e:
+        print(f"加载游戏数据失败：{e}")
+        return
 
-    # 初始化UI
-    # ui = MainUI(controller)
+    controller.run_loop()
 
-    # 启动界面
-    # ui.run()
-
-    print("开发测试项目启动（待实现）")
 
 if __name__ == "__main__":
-=======
-# 项目入口文件
-# 负责整合各模块，启动测试界面
-
-import sys
-import os
-
-# 添加当前目录到路径，便于导入模块
-sys.path.append(os.path.dirname(__file__))
-
-# 导入各模块（待实现）
-# from core.decoder import Decoder
-# from core.events import EventManager
-# from ui.main_ui import MainUI
-# from logic.controller import Controller
-# from utils.converter import Converter
-
-def main():
-    # 初始化数据解析器
-    # decoder = Decoder()
-
-    # 初始化事件管理器
-    # event_manager = EventManager()
-
-    # 初始化控制器
-    # controller = Controller(decoder, event_manager)
-
-    # 初始化UI
-    # ui = MainUI(controller)
-
-    # 启动界面
-    # ui.run()
-
-    print("开发测试项目启动（待实现）")
-
-if __name__ == "__main__":
->>>>>>> origin/main
-    main()
+    # 1. 全局手动对战: mode=manual
+    # 2. 半自动（单人操作/机器对手）: mode=half-auto
+    main(mode="manual", prefer_backend=True)
